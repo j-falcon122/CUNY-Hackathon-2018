@@ -31,7 +31,6 @@ def update_shelters():
     with open(url) as f:
         shelters = json.loads(f.read())
     # shelters = get_shelter_list(url)
-
     for provider in shelters:
         if not shelter_exists(provider):
             print("File was read, creating new shelter.'")
