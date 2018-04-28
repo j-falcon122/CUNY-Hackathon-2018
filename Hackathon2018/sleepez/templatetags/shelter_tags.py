@@ -33,7 +33,6 @@ def update_shelters():
     # shelters = get_shelter_list(url)
     for provider in shelters:
         if not shelter_exists(provider):
-            print("File was read, creating new shelter.'")
             new_shelter = Shelter(
                 name= provider['nta'],
                 address = provider['address'],
