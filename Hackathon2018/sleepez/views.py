@@ -17,7 +17,7 @@ def update(request):
 def google_maps(request):
     # get_geocode()
     get_reverse_geocode()
-    return HttpResponse('google_maps')
+    return render(request, 'sleepez/google_maps.html')
 
 def test(request):
     return render(request, 'sleepez/search.html')

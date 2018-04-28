@@ -1,8 +1,0 @@
-<form action="/your-address/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
-
-
-<a href="{% url 'get_address' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>

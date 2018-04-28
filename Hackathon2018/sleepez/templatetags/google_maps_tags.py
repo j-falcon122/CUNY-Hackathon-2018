@@ -19,13 +19,13 @@ def get_geocode():
 def get_reverse_geocode():
     gmaps = googlemaps.Client(key='AIzaSyAso1CPfl8yBx56oJI7wVUE0yJL3o_bx0k')
     reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
-
+    # print reverse_geocode_result
 
     now = datetime.now()
-    print "seee this?"
+    # print "seee this?"
     directions_result = gmaps.directions("Sydney Town Hall",
                                              "Parramatta, NSW",
                                              mode="driving",
                                              departure_time=now)
-    print "how about this?"
-    print directions_result
+    # print "how about this?"
+    # print directions_result
