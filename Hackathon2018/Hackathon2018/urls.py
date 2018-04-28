@@ -20,7 +20,4 @@ from sleepez import views as sleep_view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('sleepez.urls', namespace='sleepez')),
-    # url(r'^?$/', include('sleepez.urls')),
-    # url(r'^test/', sleep_view.test, name='test'),
-
 ]
