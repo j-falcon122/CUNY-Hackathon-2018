@@ -43,4 +43,3 @@ def update_shelters():
                 borough = provider['borough'],
             )
             new_shelter.save()
-    return None
