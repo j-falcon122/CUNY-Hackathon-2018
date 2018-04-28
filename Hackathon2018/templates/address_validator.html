@@ -1,0 +1,11 @@
+<script>
+    function initAutocomplete() {
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('address-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+    }
+</script>
+    <div class="container">
+        {{ address_validator.as_p }}
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>
+    </div>
