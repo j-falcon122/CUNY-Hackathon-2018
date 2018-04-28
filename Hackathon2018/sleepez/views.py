@@ -1,11 +1,17 @@
 from django.shortcuts import render
-import requests 
+from django.http import HttpResponse
+# import requests
 import json
+from .templatetags.shelter_tags import *
 
 # Create your views here.
 def index(request):
     return render(request, 'sleepez/index.html')
 
+
+def update(request):
+    update_shelters()
+    return HttpResponse('Shelters have been updated.')
 
 # def test(request):
 #     # response = requests.get('https://data.cityofnewyork.us/resource/5ud2-iqje.json')
