@@ -8,17 +8,61 @@
        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../../static/js/googleMaps.js" ></script>
+    <!-- <script type="text/javascript" src="../../static/js/googleMaps.js" ></script> -->
   </head>
   <body>
     <h3>My Google Maps Demo</h3>
     <div id="map"></div>
-
+    <button onclick="refresh()">Reload</button>
     <p id="demo">demo</p>
 
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAso1CPfl8yBx56oJI7wVUE0yJL3o_bx0k&callback=getLocation">
+    </script>
+
     <script>
-      function initMap() {
-        var uluru = {lat: 40.7408092, lng: -73.98265169999999};
+      var lat = 40.7408092;
+      var long = -73.98265169999999;
+      var $demo = $("#demo");
+      var $map = $("#map");
+
+      function refresh() {
+        // TODO - Add functionality when map does not load.
+        // $('body').load("ajax/google_maps.html");
+      }
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(setPosition, error, options)
+        } 
+        else {
+            $demo.html("Geolocation is not supported by this browser.");
+        }
+      }
+
+      var options = {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      };
+
+      function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      }
+
+      function setPosition(position){
+        console.log("yuuuuur");
+        console.log(position);
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        $demo.html("Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude); 
+        initMap(lat, long)
+      }
+
+      function initMap(lat, long) {
+        var uluru = {lat: lat, lng: long};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
           center: uluru
@@ -28,10 +72,6 @@
           map: map
         });
       }
-    </script>
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAso1CPfl8yBx56oJI7wVUE0yJL3o_bx0k&callback=initMap">
     </script>
   </body>
 </html>
