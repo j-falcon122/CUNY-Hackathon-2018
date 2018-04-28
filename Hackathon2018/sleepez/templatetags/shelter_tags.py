@@ -1,5 +1,5 @@
 from django import template
-import urllib.request, json
+import json
 from  ..models import Shelter
 
 register = template.Library()

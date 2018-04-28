@@ -1,7 +1,22 @@
+/*Carousel CSS*/
+
+.carousel-caption > h5 {
+  font-size: 2.7em;
+  text-transform: uppercase;
+}
+
+.carousel-caption > p {
+  font-size: 1.7em;
+}
 
 /*footer CSS*/
+
 h5 {
   color: #ffffff;
+}
+
+hr {
+  background-color: #ffffff;
 }
 
 #footer-text {
@@ -60,7 +75,9 @@ h5 {
   -webkit-text-fill-color: transparent;
 }
 
-
+.footer-copyright {
+  background-color: #222222;
+}
 
 
 
