@@ -1,33 +1,38 @@
 from django.shortcuts import render
-import requests 
+#import requests
 import json
 from django.http import HttpResponse
 from .templatetags.shelter_tags import * 
 from .templatetags.google_maps_tags import * 
 from django.conf import settings
+from .form import SearchForm
 
 # Create your views here.
 def index(request):
     return render(request, 'sleepez/index.html')
 
+
+def sign_up(request):
+    return render(request, 'sleepez/sign_up.html')
+
+
 def update(request):
     update_shelters()
     return HttpResponse('Shelters have been updated.')
+
 
 def google_maps(request):
     # get_geocode()
     get_reverse_geocode()
     return HttpResponse('google_maps')
 
-def test(request):
-    return render(request, 'sleepez/search.html')
 
 def show_map(request, origin, destination):
     url = ('https://www.google.com/maps/embed/v1/directions?' +
-           'key=AIzaSyClUKFNtktLHjlLPKsQIyU7RH0v8TDiTwI' +
+           'key='+settings.API_KEY +
            '&origin='+origin +
            '&destination=' + destination +
-           '&mode=walking'
+           '&mode=walking&zoom=15'
            )
     context_dict = {
         'url': url,
@@ -36,3 +41,8 @@ def show_map(request, origin, destination):
     }
     return render(request, 'sleepez/search.html', context_dict)
 
+
+def search_form(request):
+    form = SearchForm
+    context_dict = {'form': form}
+    return render(request,'sleepez/search_form.html', context_dict)

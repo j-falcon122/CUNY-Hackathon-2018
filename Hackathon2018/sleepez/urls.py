@@ -20,9 +20,11 @@ from django.conf.urls import url
 appname = 'sleepez'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^sign_up/$', views.sign_up, name='sign_up'),
     url(r'^google-maps/$', views.google_maps, name='google-maps'),
     url(r'^update/', views.update, name='update'),
     url(r'^search/(?P<origin>[\w-]+)-(?P<destination>\w+)/$', views.show_map, name='search'),
+    url(r'^form/', views.search_form , name='update'),
 
 
 ]
