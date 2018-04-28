@@ -8,6 +8,9 @@ from .templatetags.shelter_tags import *
 def index(request):
     return render(request, 'sleepez/index.html')
 
+def sign_up(request):
+    return render(request, 'sleepez/sign_up.html')
+
 
 def update(request):
     update_shelters()
