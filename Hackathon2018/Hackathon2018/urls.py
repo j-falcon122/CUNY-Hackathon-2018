@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from sleepez import views as sleep_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include('sleepez.urls')),
+    url(r'^', include('sleepez.urls')),
+    # url(r'^?$/', include('sleepez.urls')),
+    # url(r'^test/', sleep_view.test, name='test'),
 
 ]
