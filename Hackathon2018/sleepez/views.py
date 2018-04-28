@@ -2,6 +2,8 @@ from django.shortcuts import render
 #import requests
 import json
 from django.http import HttpResponse
+from django.views.generic import CreateView
+from django.contrib.messages.views import SuccessMessageMixin
 from .templatetags.shelter_tags import * 
 from .templatetags.google_maps_tags import * 
 from django.conf import settings
@@ -45,21 +47,13 @@ def show_map(request, origin, destination):
 
 def search_form(request):
     form = SearchForm
-    context_dict = {'form': form}
+    context_dict = {'address_validator': form}
     return render(request,'sleepez/search_form.html', context_dict)
 
 
-def host_form(request):
-    context_dict = {
-        'form':HostForm,
-    }
-    return render(request, 'sleepez/host_form.html', context_dict)
-
-
-def validate_host(request):
-    host = HostForm(request.POST)
-    if host.is_valid():
-        host.save()
-    else:
-        return HttpResponse('Bad response.')
-    return HttpResponse('Application completed successfully.')
+class HostCreateView(SuccessMessageMixin, CreateView):
+    model = PotentialHost
+    fields = '__all__'
+    template_name = 'sleepez/host_form.html'
+    success_message = 'Application has been processed. Allow a couple of days for us to review it.'
+    success_url = '#'

@@ -1,15 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<script>
-    function initAutocomplete() {
-        // Create the search box and link it to the UI element.
-        var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-    }
-</script>
-    <div class="container">
-        {{ form.as_p }}
-        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>
-    </div>
+    {% include 'address_validator.html' %}
 {% endblock %}
