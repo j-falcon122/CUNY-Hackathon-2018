@@ -23,6 +23,7 @@ class SearchForm(forms.Form):
 #         widget=forms.TextInput()
 #     )
 
+
 class HostForm(forms.ModelForm):
     class Meta:
         model = PotentialHost
@@ -33,3 +34,17 @@ class HostForm(forms.ModelForm):
                 'class': 'form-control',
             })
         }
+
+
+class SearchForm(forms.Form):
+    address = forms. CharField(
+        max_length=200,
+        label='Enter your address:',
+        widget=forms.TextInput(
+            attrs={
+                'class':'form-control',
+                'id': 'address-input',
+                'placeholder': '55 Lexington Avenue, New York NY'
+            }
+        )
+)
