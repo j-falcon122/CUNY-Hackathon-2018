@@ -23,7 +23,7 @@ def shelter_exists(provider):
         return False
     return True
 
-	
+
 @register.filter(name='get_shelters')
 def update_shelters():
     url = 'sleepez/static/data/shelters.json'
@@ -42,3 +42,8 @@ def update_shelters():
                 borough = provider['borough'],
             )
             new_shelter.save()
+
+
+@register.filter(name='add_class')
+def add_class(field, css):
+    return field.as_widget(attrs={'class': css})
