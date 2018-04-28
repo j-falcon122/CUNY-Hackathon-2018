@@ -5,7 +5,8 @@ from django.http import HttpResponse
 from .templatetags.shelter_tags import * 
 from .templatetags.google_maps_tags import * 
 from django.conf import settings
-from .form import SearchForm
+from .form import SearchForm, HostForm
+from .models import PotentialHost
 
 # Create your views here.
 def index(request):
@@ -46,3 +47,19 @@ def search_form(request):
     form = SearchForm
     context_dict = {'form': form}
     return render(request,'sleepez/search_form.html', context_dict)
+
+
+def host_form(request):
+    context_dict = {
+        'form':HostForm,
+    }
+    return render(request, 'sleepez/host_form.html', context_dict)
+
+
+def validate_host(request):
+    host = HostForm(request.POST)
+    if host.is_valid():
+        host.save()
+    else:
+        return HttpResponse('Bad response.')
+    return HttpResponse('Application completed successfully.')

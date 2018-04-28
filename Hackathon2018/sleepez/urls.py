@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from sleepez import views
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 appname = 'sleepez'
 urlpatterns = [
@@ -25,6 +25,8 @@ urlpatterns = [
     url(r'^update/', views.update, name='update'),
     url(r'^search/(?P<origin>[\w-]+)-(?P<destination>\w+)/$', views.show_map, name='search'),
     url(r'^form/', views.search_form , name='update'),
-
-
+    url(r'^host_form/', include([
+        url(r'^$', views.host_form, name="host_form"),
+        url(r'^validate/', views.validate_host, name="validate"),
+    ])),
 ]

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load shelter_tags %}
+    <div class="container card">
+        <div class="card-body">
+            <h2>Apply to become a Host Organization.</h2>
+            <form action="{% url 'sleepez:validate' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field.label }}
+                    {{ field|add_class:'form-control' }}
+                {% endfor %}
+                <br/>
+                <button class="btn btn-primary" type="submit">Submit application</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
