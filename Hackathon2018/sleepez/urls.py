@@ -22,4 +22,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^google-maps/$', views.google_maps, name='google-maps'),
     url(r'^update/', views.update, name='update'),
+    url(r'^search/(?P<origin>[\w-]+)-(?P<destination>\w+)/$', views.show_map, name='search'),
+
+
 ]

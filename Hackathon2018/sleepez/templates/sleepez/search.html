@@ -1,0 +1,11 @@
+{% extends 'base.html'   %}
+{% block title %}
+    <title>Directions from {{origin}} to {{destination}}</title>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <iframe onload="this.width=screen.width*0.6; this.height=screen.height*0.5;" frameborder="0" style="border:0"
+            src="{{ url }}" allowfullscreen>
+        </iframe>
+    </div>
+{% endblock %}
