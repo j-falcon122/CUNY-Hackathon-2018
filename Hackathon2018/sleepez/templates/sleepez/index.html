@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% get_template('sleepez/google_maps.html') %}
 <!-- CAROUSEL -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -39,6 +40,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+      {% include 'google_maps.html' %}
     </div>
     <!-- /CAROUSEL -->
     <div class="container">
