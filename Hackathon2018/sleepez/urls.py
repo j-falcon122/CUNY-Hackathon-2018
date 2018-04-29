@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^google_maps/$', views.google_maps, name='google_maps'),
     url(r'^update/', views.update, name='update'),
-    url(r'^search/(?P<origin>[\w-]+)-(?P<destination>\w+)/$', views.show_map, name='search'),
+    url(r'^directions/(?P<origin>[\w-]+)-(?P<destination>\w+)/$', views.directions, name='directions'),
     url(r'^form/', views.search_form , name='update'),
     url(r'^host_form/', views.HostCreateView.as_view(), name="host_form"),
 ]
