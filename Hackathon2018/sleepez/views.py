@@ -9,6 +9,8 @@ from .templatetags.google_maps_tags import *
 from django.conf import settings
 from .form import SearchForm, HostForm
 from .models import PotentialHost
+from .models import Shelter
+
 
 # Create your views here.
 def index(request):
@@ -25,9 +27,10 @@ def update(request):
 
 
 def google_maps(request):
-    # get_geocode()
-    get_reverse_geocode()
-    return render(request, 'sleepez/google_maps.html')
+    return render(request, 'sleepez/google_maps.html', {
+        'shelters': Shelter.objects.all()
+    })
+
 
 
 def show_map(request, origin, destination):
