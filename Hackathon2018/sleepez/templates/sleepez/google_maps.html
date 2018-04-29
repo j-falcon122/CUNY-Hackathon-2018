@@ -65,18 +65,18 @@
           zoom: 15,
           center: uluru
         });
-        // var marker = new google.maps.Marker({
-        //   position: uluru,
-        //   map: map
-        // });
+
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          draggable:true,
+        });
 
         shelter_locations = getShelterLocations();
         for (var i = 0; i < shelter_locations.length; i++) {
           var shelter_location = shelter_locations[i];
-          console.log(shelter_location[1]);
-          console.log(shelter_location[2]);
-          new google.maps.Marker({
-            position: {lat: parseInt(shelter_location[1]), lng: parseInt(shelter_location[2])},
+          var marker = new google.maps.Marker({
+            position: {lat: shelter_location[1], lng: shelter_location[2]},
             map: map,
             title: shelter_location[0]
           });
@@ -87,7 +87,7 @@
       function getShelterLocations() {
         console.log("get here???");
           {% for shelter in shelters %}
-              shelter_locations.push(['{{shelter.name}}','{{shelter.latitude}}', '{{shelter.longitude}}']);
+              shelter_locations.push(['{{shelter.name}}', parseFloat('{{shelter.latitude}}'), parseFloat('{{shelter.longitude}}') ]);
           {% endfor%}
           console.log(shelter_locations);
           return shelter_locations;
