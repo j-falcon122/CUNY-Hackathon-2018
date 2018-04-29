@@ -2,10 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import CreateView
 from django.contrib.messages.views import SuccessMessageMixin
-from .templatetags.shelter_tags import * 
-from .templatetags.google_maps_tags import * 
+from .templatetags.shelter_tags import *
 from django.conf import settings
-from .form import SearchForm, HostForm
+from .forms import SearchForm
 from .models import PotentialHost
 # from .models import Shelter
 from .utils import update_shelters
@@ -15,8 +14,10 @@ from .utils import update_shelters
 def index(request):
     return render(request, 'sleepez/index.html')
 
+
 def about(request):
     return render(request, 'sleepez/about.html')    
+
 
 def sign_up(request):
     return render(request, 'sleepez/sign_up.html')
@@ -33,7 +34,6 @@ def google_maps(request):
     })
 
 
-
 def show_map(request, origin, destination):
     url = ('https://www.google.com/maps/embed/v1/directions?' +
            'key='+settings.API_KEY +
@@ -44,7 +44,7 @@ def show_map(request, origin, destination):
     context_dict = {
         'url': url,
         'origin': origin,
-        'destination':destination,
+        'destination': destination,
     }
     return render(request, 'sleepez/search.html', context_dict)
 

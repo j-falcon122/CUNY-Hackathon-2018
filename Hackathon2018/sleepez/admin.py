@@ -12,6 +12,6 @@ class HostAdmin(admin.ModelAdmin):
     list_display = ('name', 'address', 'contact_phone')
     search_fields = list_display
 
-# models = []
+
 admin.site.register(Shelter,ShelterAdmin)
 admin.site.register(PotentialHost, HostAdmin)

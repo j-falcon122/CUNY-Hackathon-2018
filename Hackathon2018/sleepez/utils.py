@@ -11,11 +11,13 @@ def get_geocode(address):
     geocode_result = gmaps.geocode(address)
     return geocode_result
 
-# def get_geolocations():
-#     shelters = Shelter.objects.all()
-#     addresses = list()
-#     for branch in shelters:
-#         addresses.append(branch)
+def get_geolocation_list():
+    shelters = Shelter.objects.all()
+    addresses = list()
+    for branch in shelters:
+        location = {}
+        addresses.append([branch.latitude, branch.longitude])
+    return addresses
 
 def get_geolocation(address):
     jfile = get_geocode(address)
@@ -24,19 +26,12 @@ def get_geolocation(address):
     return latitude, longitude
 
     # Look up an address with reverse geocoding
-def get_reverse_geocode():
-    gmaps = googlemaps.Client(key='AIzaSyAso1CPfl8yBx56oJI7wVUE0yJL3o_bx0k')
-    reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
-    # print reverse_geocode_result
+def get_reverse_geocode(latitude, longitude):
+    gmaps = googlemaps.Client(key=settings.API_KEY)
+    reverse_geocode_result = gmaps.reverse_geocode((latitude, longitude))
+    address = reverse_geocode_result[0]['formatted_address']
+    return address
 
-    now = datetime.now()
-    # print "seee this?"
-    directions_result = gmaps.directions("Sydney Town Hall",
-                                             "Parramatta, NSW",
-                                             mode="driving",
-                                             departure_time=now)
-    # print "how about this?"
-    # print directions_result
 
 def get_shelter_list(url):
     try:
