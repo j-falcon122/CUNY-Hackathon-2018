@@ -1,13 +1,11 @@
 {% extends 'base.html'  %}
+{% load static %}
 {% block title %}
     <title> Google Maps Demo</title>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAso1CPfl8yBx56oJI7wVUE0yJL3o_bx0k&callback=getLocation">
     </script>
-
-    {% block content %}
-     {% load static %}
-      <script>
+    <script>
         console.log("loading...");
         var lat = 40.7408092;
         var long = -73.98265169999999;
@@ -87,11 +85,28 @@
             console.log(shelter_locations);
             return shelter_locations;
           }
-
       </script>
-    </script>
-  {% endblock %}
+{% endblock %}
+{% block content %}
+<div class="container">
     <div id="map"></div>
     <button onclick="refresh()">Reload</button>
+    <p id="demo" style="visibility: hidden">demo</p>
+</div>
+<div class="container">
+    <h3>List of institutions:</h3>
+    <div class="list-group">
+        {% for item in shelters %}
+            <a href="{% url 'sleepez:directions' origin=12 destination=123 %}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1" style="color:black">{{item.name}}</h5>
+        </div>
+        <p class="mb-1" style="color:black">Address: {{item.address}}
+            <br/>       Phone Number: {{item.phone}}
+        </p>
+        </a>
+        {% endfor %}
+    </div>
+    
+</div>
 {% endblock %}
-  

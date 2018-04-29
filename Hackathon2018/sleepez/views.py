@@ -34,7 +34,7 @@ def google_maps(request):
     })
 
 
-def show_map(request, origin, destination):
+def directions(request, origin, destination):
     url = ('https://www.google.com/maps/embed/v1/directions?' +
            'key='+settings.API_KEY +
            '&origin='+origin +
