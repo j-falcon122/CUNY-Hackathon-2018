@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}">
     {% block title %}
-      <title>Sleep E-Z</title>
+      <title>SleepEZ</title>
     {% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="/">
       <img src="{% static 'img/sleepez-no-ring.svg' %}" width="30" height="30" class="d-inline-block align-top" alt="lol">
-      Sleep E-Z
+      SleepEZ
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
             <div class="row">
                 <!--First column-->
                 <div class="col-md-4">
-                  <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Let's help our community sleep E-Z</h5>
+                  <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Let's help our community SleepEZ</h5>
                   <p id="footer-text">If you are an institution willing to open your doors for the night so that the less fortunate may have a place to rest their head, please sign up for our service with the link below.</p>
                 </div>
                 <!--/.First column-->
@@ -90,7 +90,7 @@
                     <h5 class="mb-1">Register for free</h5>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+                    <a href="{% url 'sleepez:sign_up' %}" class="btn btn-danger btn-rounded">Sign up!</a>
                 </li>
             </ul>
         </div>
