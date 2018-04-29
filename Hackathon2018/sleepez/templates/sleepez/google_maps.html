@@ -18,7 +18,7 @@
         
         function getLocation() {
           if (navigator.geolocation) {
-            
+
             // TODO - fix real time geolocations, the line below currently works BUT slow
             // navigator.geolocation.getCurrentPosition(setPosition, error, options)
 
@@ -54,7 +54,7 @@
           };
 
           var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
+            zoom: 12,
             center: uluru
           });
 
