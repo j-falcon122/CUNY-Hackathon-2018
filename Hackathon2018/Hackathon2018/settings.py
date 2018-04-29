@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -123,4 +124,4 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]  #'/var/www/static/', ]
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
-API_KEY = 'AIzaSyAso1CPfl8yBx56oJI7wVUE0yJL3o_bx0k'
+MAPS_API_KEY = config('MAPS_API_KEY')
