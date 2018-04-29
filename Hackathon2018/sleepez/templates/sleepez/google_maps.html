@@ -19,80 +19,85 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAso1CPfl8yBx56oJI7wVUE0yJL3o_bx0k&callback=getLocation">
     </script>
+    {% block content %}
+     {% load static %}
+      <script>
+        console.log("loading...");
+        var lat = 40.7408092;
+        var long = -73.98265169999999;
+        var $demo = $("#demo");
+        var shelter_locations = [];
 
-    <script>
-      console.log("loading...");
-      var lat = 40.7408092;
-      var long = -73.98265169999999;
-      var $demo = $("#demo");
-      var shelter_locations = [];
-
-      function refresh() {
-        // TODO - Add functionality when map does not load.
-        // $('body').load("ajax/google_maps.html");
-      }
-      
-      function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(setPosition, error, options)
-        } 
-        else {
-            $demo.html("Geolocation is not supported by this browser.");
+        function refresh() {
+          // TODO - Add functionality when map does not load.
+          // $('body').load("ajax/google_maps.html");
         }
-      }
+        
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(setPosition, error, options)
+          } 
+          else {
+              $demo.html("Geolocation is not supported by this browser.");
+          }
+        }
 
-      var options = {
-        enableHighAccuracy: true,
-        timeout: 30000,
-        maximumAge: 0
-      };
+        var options = {
+          enableHighAccuracy: true,
+          timeout: 30000,
+          maximumAge: 0
+        };
 
-      function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-      }
+        function error(err) {
+          console.warn(`ERROR(${err.code}): ${err.message}`);
+        }
 
-      function setPosition(position){
-        lat = position.coords.latitude;
-        long = position.coords.longitude;
-        $demo.html("Latitude: " + position.coords.latitude + 
-            "<br>Longitude: " + position.coords.longitude); 
-        initMap(lat, long)
-      }
+        function setPosition(position){
+          lat = position.coords.latitude;
+          long = position.coords.longitude;
+          initMap(lat, long)
+        }
 
-      function initMap(lat, long) {
-        var uluru = {lat: lat, lng: long};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: uluru
-        });
+        function initMap(lat, long) {
+          var uluru = {lat: lat, lng: long};
+          var image = {
+            url: "{% static  'img/pointer.png' %}",
+          };
 
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
-          draggable:true,
-        });
-
-        shelter_locations = getShelterLocations();
-        for (var i = 0; i < shelter_locations.length; i++) {
-          var shelter_location = shelter_locations[i];
-          var marker = new google.maps.Marker({
-            position: {lat: shelter_location[1], lng: shelter_location[2]},
-            map: map,
-            title: shelter_location[0]
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: uluru
           });
+
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            draggable:true,
+          });
+
+          shelter_locations = getShelterLocations();
+          for (var i = 0; i < shelter_locations.length; i++) {
+            var shelter_location = shelter_locations[i];
+            var marker = new google.maps.Marker({
+              position: {lat: shelter_location[1], lng: shelter_location[2]},
+              map: map,
+              icon: image,
+              title: shelter_location[0]
+            });
+          }
+
         }
 
-      }
+        function getShelterLocations() {
+          console.log("get here???");
+            {% for shelter in shelters %}
+                shelter_locations.push(['{{shelter.name}}', parseFloat('{{shelter.latitude}}'), parseFloat('{{shelter.longitude}}') ]);
+            {% endfor%}
+            console.log(shelter_locations);
+            return shelter_locations;
+          }
 
-      function getShelterLocations() {
-        console.log("get here???");
-          {% for shelter in shelters %}
-              shelter_locations.push(['{{shelter.name}}', parseFloat('{{shelter.latitude}}'), parseFloat('{{shelter.longitude}}') ]);
-          {% endfor%}
-          console.log(shelter_locations);
-          return shelter_locations;
-        }
-
-    </script>
+      </script>
+    {% endblock %}
   </body>
 </html>
