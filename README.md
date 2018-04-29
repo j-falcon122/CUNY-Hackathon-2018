@@ -13,13 +13,27 @@ We created this app in the hopes that we could help more of the homeless have a 
 Technologies used in the process of creating the app include HTML, CSS, Python, Django, Google Maps API, Bootstrap, Photoshop, and Illustrator.
 
 ## Try it out yourself
+First, make sure you alread have installed Python, v 2.7 preferably, and Git.
+
+To run, clone or [download](https://github.com/j-falcon122/CUNY-Hackathon-2018/archive/master.zip) the repository:
 
 `git clone https://github.com/j-falcon122/CUNY-Hackathon-2018.git`
 
 `cd CUNY-Hackathon-2018/Hackathon2018`
 
+Install the required dependencies
+
 `pip install -r requirements.txt`
 
+It's necessary to get a Google Maps API Key. You can [request it here](https://developers.google.com/maps/documentation/javascript/get-api-key) (Remember to enable it)
+
+And write your API Key inside the `.env`:
+
+```MAPS_API_KEY = 'YOUR_API_KEY' ```
+
+
+ And run the server
+ 
 `python manage.py runserver`
 
 ## Preview 
