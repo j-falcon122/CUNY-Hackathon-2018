@@ -14,6 +14,8 @@ from .utils import update_shelters
 def index(request):
     return render(request, 'sleepez/index.html')
 
+def about(request):
+    return render(request, 'sleepez/about.html')    
 
 def sign_up(request):
     return render(request, 'sleepez/sign_up.html')
