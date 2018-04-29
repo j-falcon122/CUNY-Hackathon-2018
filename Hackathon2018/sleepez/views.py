@@ -1,6 +1,4 @@
 from django.shortcuts import render
-#import requests
-import json
 from django.http import HttpResponse
 from django.views.generic import CreateView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -9,7 +7,8 @@ from .templatetags.google_maps_tags import *
 from django.conf import settings
 from .form import SearchForm, HostForm
 from .models import PotentialHost
-from .models import Shelter
+# from .models import Shelter
+from .utils import update_shelters
 
 
 # Create your views here.

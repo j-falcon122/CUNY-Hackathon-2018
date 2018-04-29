@@ -7,6 +7,8 @@ class Shelter(models.Model):
     address = models.CharField(max_length=200, blank=False)
     phone = models.CharField(max_length=45, blank=True)
     post_code = models.CharField(max_length=5, blank=True)
+    latitude = models.CharField(max_length=20, blank=False)
+    longitude = models.CharField(max_length=20, blank=False)
     borough = models.CharField(max_length=45)
 
 

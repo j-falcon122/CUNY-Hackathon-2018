@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from sleepez import views
-from django.conf.urls import url, include
+from django.conf.urls import url
 
 appname = 'sleepez'
 urlpatterns = [
