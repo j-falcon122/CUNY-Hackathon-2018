@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      #map {
-        height: 400px;
-        width: 100%;
-       }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script type="text/javascript" src="../../static/js/googleMaps.js" ></script> -->
-  </head>
-  <body>
-    <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <button onclick="refresh()">Reload</button>
-    <p id="demo">demo</p>
-  
+{% extends 'base.html'  %}
+{% block title %}
+    <title> Google Maps Demo</title>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAso1CPfl8yBx56oJI7wVUE0yJL3o_bx0k&callback=getLocation">
     </script>
-
     <script>
       console.log("loading...");
       var lat = 40.7408092;
@@ -92,7 +76,10 @@
           console.log(shelter_locations);
           return shelter_locations;
         }
-
     </script>
-  </body>
-</html>
+{% endblock %}
+{% block content %}
+    <div id="map"></div>
+    <button onclick="refresh()">Reload</button>
+    <p id="demo">demo</p>
+{% endblock %}

@@ -111,3 +111,8 @@ a:link, a:visited {
 .footer-copyright {
   background-color: #222222;
 }
+#map {
+  height: 400px;
+  width: 100%;
+}
+
