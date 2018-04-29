@@ -18,7 +18,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" style="font-size: 2em;" href="/">
+      <a class="navbar-brand" style="font-size: 2em;" href="/google_maps">
       <img src="{% static 'img/sleepez-v2.svg' %}" width="50" height="50" class="d-inline-block" alt="lol">
       SleepEZ
       </a>
@@ -29,6 +29,7 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="{% url 'sleepez:index' %}">Home <span class="sr-only"></span></a>
           <a class="nav-item nav-link" href="#">Resource Locations</a>
+          <a class="nav-item nav-link" href="/google_maps">Locate</a>
           <a class="nav-item nav-link" href="{% url 'sleepez:about' %}">About Us</a>
         </div>
       </div>
