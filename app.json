@@ -1,0 +1,16 @@
+{
+  "name": "CUNY-Hackathon-2018",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
