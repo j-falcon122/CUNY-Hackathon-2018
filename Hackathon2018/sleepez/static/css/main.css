@@ -4,6 +4,10 @@
   font-weight: bold;
 }
 
+.page-text {
+  line-height: 2em;
+}
+
 /*Carousel CSS*/
 
 .carousel-caption > h5 {
@@ -12,7 +16,7 @@
 }
 
 .carousel-caption > p {
-  font-size: 1.7em;
+  font-size: 1.2em;
 }
 
 /*footer CSS*/
@@ -22,7 +26,11 @@ h5 {
 }
 
 .card-body > h5 {
-  color: #333333;
+  color: #eeeeee;
+}
+
+.card-text {
+  color: #eeeeee;
 }
 
 hr {
@@ -57,12 +65,27 @@ hr {
   color: #ffffff;
 }
 
-.fa-google-plus {
-  color: #d34836;
+.fa-github-alt {
+  color: #222222;
 }
 
-.fa-google-plus:hover {
-  color: #ffffff;
+.fa-github-alt:hover {
+  color: #fff;
+}
+
+.fa-lg , .github-link{
+  color: #fff;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+a:link, a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  color: #333;
 }
 
 .fa-linkedin {
