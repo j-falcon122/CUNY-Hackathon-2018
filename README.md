@@ -1,4 +1,4 @@
-# SleepEZ 
+# SleepEZ
 
 In a city that houses 63,343 homeless people in the municipal shelter system, we need to come up with improved ways of sharing information on available spaces for the needy to sleep during the night, especially those with no direct access to the internet. So how do the homeless, a user base that more likely than not can’t afford a cell phone with internet capabilities, find a shelter to stay the night in? They find it, with SleepEZ.
 
