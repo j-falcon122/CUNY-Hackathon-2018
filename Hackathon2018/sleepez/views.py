@@ -35,8 +35,10 @@ def google_maps(request):
 
 
 def directions(request, origin, destination):
+    # destination = shelter.address
+    destination = destination
     url = ('https://www.google.com/maps/embed/v1/directions?' +
-           'key='+settings.API_KEY +
+           'key='+settings.MAPS_API_KEY +
            '&origin='+origin +
            '&destination=' + destination +
            '&mode=walking&zoom=15'
