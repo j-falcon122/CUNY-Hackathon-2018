@@ -38,4 +38,4 @@ And write your API Key inside the `.env`:
 
 ## Preview 
 
-<img src="https://user-images.githubusercontent.com/23161228/39408392-7f9ad064-4ba3-11e8-80ee-a799aa094b40.png">
+<img src="https://user-images.githubusercontent.com/23161228/39503269-09b23238-4d93-11e8-9cd4-1d0dcf91985b.png">
