@@ -1,1 +1,1 @@
-web: gunicorn Hackathon2018.wsgi --log-file -
+web: gunicorn Hackathon2018.wsgi --log-file=-
