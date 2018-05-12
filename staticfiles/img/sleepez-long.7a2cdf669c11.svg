@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1350 450" style="enable-background:new 0 0 1350 450;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);fill:url(#SVGID_3_);}
+	.st1{fill:#FFFFFF;}
+	.st2{font-family:'Lato-Bold';}
+	.st3{font-size:101.2398px;}
+	.st4{font-size:78.8044px;}
+	.st5{font-size:64.7794px;}
+	.st6{font-family:'Lato-Regular';}
+	.st7{font-size:250px;}
+</style>
+<g>
+	<g>
+		<defs>
+			<path id="SVGID_1_" d="M193.9,15.8C114,15.8,49.2,80.6,49.2,160.5c0,31.9,10.3,61.4,27.8,85.3l116.8,188.4l116.8-188.4
+				c17.5-23.9,27.8-53.4,27.8-85.3C338.5,80.6,273.8,15.8,193.9,15.8z M193.9,272.5c-66.8,0-121-54.2-121-121s54.2-121,121-121
+				s121,54.2,121,121S260.7,272.5,193.9,272.5z"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-92.3049" y1="225" x2="480.0606" y2="225">
+			<stop  offset="0" style="stop-color:#0071BC"/>
+			<stop  offset="1" style="stop-color:#000000"/>
+		</linearGradient>
+		<circle class="st0" cx="193.9" cy="225" r="286.2"/>
+	</g>
+	<g>
+		<text transform="matrix(1 0 0 1 211.2754 153.5678)" class="st1 st2 st3">Z</text>
+		<text transform="matrix(1 0 0 1 155.9146 175.9833)" class="st1 st2 st4">Z</text>
+		<text transform="matrix(1 0 0 1 101.8721 205.9887)" class="st1 st2 st5">Z</text>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 352.3719 318.231)" class="st1 st6 st7">SLEEPEZ</text>
+</svg>
