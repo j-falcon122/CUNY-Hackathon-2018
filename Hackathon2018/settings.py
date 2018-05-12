@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+import logging
+import logging.handlers
 import os
 from decouple import config
 
@@ -26,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG_STATE", default=False, cast=bool)
 
-ALLOWED_HOSTS = ['https://sleep-hd.herokuapp.com/', 'sleep-hd.herokuapp.com', '.herokuapp.com', '*']
+ALLOWED_HOSTS = ['https://sleep-hd.herokuapp.com/', 'sleep-hd.herokuapp.com', '.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -118,23 +120,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Logging information
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR'),
-        },
-    },
-}
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
@@ -149,3 +134,8 @@ MAPS_API_KEY = config('MAPS_API_KEY', default="")
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
+
+
+from django.utils.log import DEFAULT_LOGGING
+
+DEFAULT_LOGGING['handlers']['console']['filters'] = []
