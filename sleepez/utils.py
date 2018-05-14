@@ -7,7 +7,7 @@ def open_json(file_path):
         return json.loads(f.read())
 
 def get_geocode(address):
-    gmaps = googlemaps.Client(key=settings.API_KEY)
+    gmaps = googlemaps.Client(key=settings.MAPS_API_KEY)
     geocode_result = gmaps.geocode(address)
     return geocode_result
 
@@ -27,7 +27,7 @@ def get_geolocation(address):
 
     # Look up an address with reverse geocoding
 def get_reverse_geocode(latitude, longitude):
-    gmaps = googlemaps.Client(key=settings.API_KEY)
+    gmaps = googlemaps.Client(key=settings.MAPS_API_KEY)
     reverse_geocode_result = gmaps.reverse_geocode((latitude, longitude))
     address = reverse_geocode_result[0]['formatted_address']
     return address

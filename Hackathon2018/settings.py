@@ -80,12 +80,28 @@ WSGI_APPLICATION = 'Hackathon2018.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+EXTERNAL_DB = config('EXTERNAL_DB', default=False, cast=bool)
+if EXTERNAL_DB:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': config('DB_NAME', default="sleep_django"),
+            'USER': config('DB_USER', default='root'),
+            'PASSWORD': config('DB_PASSWORD', default='root'),
+            'HOST': config('HOST', default="localhost" ),
+            # 'OPTIONS': {
+            #     'read_default_file': 'C:\ProgramData\MySQL\MySQL Server 5.7\my.ini',
+            # },
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
 
 
 # Password validation
