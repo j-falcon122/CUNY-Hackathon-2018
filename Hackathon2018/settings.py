@@ -145,7 +145,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [  os.path.join(BASE_DIR, "static"),  #'/var/www/static/',
 ]
 
-MAPS_API_KEY = config('MAPS_API_KEY', default="")
+MAPS_API_KEY = config('MAPS_API_KEY')
 
 # Configure Django App for Heroku.
 import django_heroku
