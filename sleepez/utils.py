@@ -2,14 +2,17 @@ from .models import Shelter
 from django.conf import settings
 import datetime, json, googlemaps
 
+
 def open_json(file_path):
     with open(file_path) as f:
         return json.loads(f.read())
+
 
 def get_geocode(address):
     gmaps = googlemaps.Client(key=settings.MAPS_API_KEY)
     geocode_result = gmaps.geocode(address)
     return geocode_result
+
 
 def get_geolocation_list():
     shelters = Shelter.objects.all()
@@ -19,13 +22,15 @@ def get_geolocation_list():
         addresses.append([branch.latitude, branch.longitude])
     return addresses
 
+
 def get_geolocation(address):
     jfile = get_geocode(address)
     latitude = jfile[0]['geometry']['location']['lat']
     longitude = jfile[0]['geometry']['location']['lng']
     return latitude, longitude
 
-    # Look up an address with reverse geocoding
+
+# Look up an address with reverse geocoding
 def get_reverse_geocode(latitude, longitude):
     gmaps = googlemaps.Client(key=settings.MAPS_API_KEY)
     reverse_geocode_result = gmaps.reverse_geocode((latitude, longitude))
