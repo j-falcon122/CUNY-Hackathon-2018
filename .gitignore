@@ -67,4 +67,5 @@ local_settings.py
 db.sqlite3
 
 #IDE Configuration file
+staticfiles/
 .idea
