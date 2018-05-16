@@ -25,17 +25,46 @@ Install the required dependencies
 
 `pip install -r requirements.txt`
 
-It's necessary to get a Google Maps API Key. You can [request it here](https://developers.google.com/maps/documentation/javascript/get-api-key) (Remember to enable it)
 
-And write your API Key inside the `.env`:
+Now, for the user settings, create a `.env ` file with the following:
 
-```MAPS_API_KEY = 'YOUR_API_KEY' ```
+```
+ DEBUG_STATE = True
+ SECRET_KEY = 'YOUR_SECRET_KEY'
+ MAPS_API_KEY = 'YOUR_MAPS_API'
+ EXTERNAL_DB = False
+ ```
+(For your Django secret key, you can [get one here](https://www.miniwebtool.com/django-secret-key-generator/) , For the  Google Maps API Key. You can [request it here](https://developers.google.com/maps/documentation/javascript/get-api-key) (Remember to enable it))
+ 
+ ### External Database
+ Depending on whether you want to use SQLite3, or MySQL, you may change the value of `EXTERNAL_DB` to True or False. If True, you need to add additional variables to your env file:
+ 
+ ```
+ DB_NAME = 'YOUR_DB_SCHEMA'
+ DB_USER = 'YOUR_DB_USER'
+ DB_PASSWORD = 'YOUR_DB_PASSWORD'
+ EXTERNAL_DB = True
+```
+_These are the login credentials you use to connect to your local database. Also note, that you need to create the schema with the name you specified on `DB_NAME`_
 
+Finally, run the migrations:
+
+```python manage.py makemigrations && python  manage.py migrate ```
 
  And run the server
  
 `python manage.py runserver`
 
+
+### Populating the DB:
+
+Initially, the database will be empty, as no shelters have been added to it. In order to read the current ones out of the json file, run the following commands :
+
+```
+python manage.py shell
+from sleepez.utils import *
+update_shelters()
+```
 ## Preview 
 
 <img src="https://user-images.githubusercontent.com/23161228/39503269-09b23238-4d93-11e8-9cd4-1d0dcf91985b.png">
